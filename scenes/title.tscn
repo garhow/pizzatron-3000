@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://chwr03je8jg4g"]
+
+[ext_resource type="Texture2D" uid="uid://byq6cqdg8crnq" path="res://sprites/title/logo.svg" id="1_i7bii"]
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_mh1qe"]
+[ext_resource type="Texture2D" uid="uid://c5lis2v8qbsaw" path="res://sprites/title/artwork.png" id="2_5q45u"]
+[ext_resource type="Theme" uid="uid://dlyaor3wo3qo2" path="res://theme.tres" id="3_go1gx"]
+[ext_resource type="AudioStream" uid="uid://jkbge3fdqr4w" path="res://sound/music.mp3" id="4_f214j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dfh0s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1n84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lj3ij"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajt2e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxang"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mh1qe")
+
+[node name="Logo" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 429.0
+offset_bottom = 324.0
+texture = ExtResource("1_i7bii")
+
+[node name="Artwork" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5q45u")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -85.0
+offset_right = 230.0
+offset_bottom = -49.0
+grow_vertical = 0
+theme = ExtResource("3_go1gx")
+text = "PLAY"
+
+[node name="Candytron Toggler" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 388.0
+offset_right = 149.0
+offset_bottom = 456.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dfh0s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b1n84")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lj3ij")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ajt2e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vxang")
+flat = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f214j")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="Play" to="." method="_start_game"]
+[connection signal="pressed" from="Candytron Toggler" to="." method="_toggle_candytron"]

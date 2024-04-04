@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dlyaor3wo3qo2"]
+
+[ext_resource type="FontFile" uid="uid://bpolsqji058ds" path="res://fonts/burbank-small-black.otf" id="1_vylqu"]
+
+[sub_resource type="Gradient" id="Gradient_ayqsj"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.811765, 0.623529, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b7h8h"]
+gradient = SubResource("Gradient_ayqsj")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i8u31"]
+texture = SubResource("GradientTexture2D_b7h8h")
+texture_margin_left = 112.0
+texture_margin_top = 10.0
+texture_margin_right = 112.0
+texture_margin_bottom = 6.0
+
+[resource]
+Button/colors/font_color = Color(0.639216, 0.203922, 0.2, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_vylqu")
+Button/styles/normal = SubResource("StyleBoxTexture_i8u31")
